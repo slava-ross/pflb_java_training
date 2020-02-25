@@ -20,11 +20,7 @@ public class Segment {
     }
 
     public boolean segmentEq ( Segment segmentToCompare ) {
-        if ( this.segmentLength() == segmentToCompare.segmentLength() ) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.segmentLength() == segmentToCompare.segmentLength();
     }
 
 }
