@@ -1,42 +1,45 @@
 package com.pflb.training.finaltask;
-
 import java.util.Arrays;
+import java.io.*;
+import java.lang.*;
 
 public class Main {
-//    Реализуйте набор классов, чтобы нижеприведенный код работал.
 
-    public class Main() {
-        public static void main(String[] args) {
-            String randomFrom = "..."; //Любая случайная строка.
-            String randomTo = "...";  //Любая случайная строка.
-            int randomSalary = 100; //Любое случайное число.
+    public static void main(String[] args) {
+        String randomFrom = "..."; //Любая случайная строка.
+        String randomTo = "...";  //Любая случайная строка.
+        int randomSalary = 100; //Любое случайное число.
 
-            MailMessage firstMessage = new MailMessage(
-                    "Robert Howard",
-                    "H.P. Lovecraft",
-                    "This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!"
-            );
+        MailMessage firstMessage = new MailMessage(
+            "Robert Howa55rd",
+            "H.P. Lov55ecraft",
+            "This \"The Shadow over Innsmouth\" story is real masterpiece, How55ard!"
+        );
 
-//Проверим, что сообщение создалось как надо.
-            assert firstMessage.getFrom().equals("Robert Howard"): "Wrong firstMessage from address";
-            assert firstMessage.getTo().equals("H.P. Lovecraft"): "Wrong firstMessage to address";
-            assert firstMessage.getContent().endsWith("Howard!"): "Wrong firstMessage content ending";
+        //System.out.printf( firstMessage.getFrom() + "\n" );
+        //System.out.printf( firstMessage.getTo() + "\n" );
+        //System.out.printf( firstMessage.getContent() + "\n" );
 
-            MailMessage secondMessage = new MailMessage(
-                    "Jonathan Nolan",
-                    "Christopher Nolan",
-                    "Брат, почему все так хвалят только тебя, когда практически все сценарии написал я. Так не честно!"
-            );
+        //Проверим, что сообщение создалось как надо.
+        assert firstMessage.getFrom().equals("Robert Howard"): "Wrong firstMessage from address";
+        assert firstMessage.getTo().equals("H.P. Lovecraft"): "Wrong firstMessage to address";
+        assert firstMessage.getContent().endsWith("Howard!"): "Wrong firstMessage content ending";
 
-            MailMessage thirdMessage = new MailMessage(
-                    "Stephen Hawking",
-                    "Christopher Nolan",
-                    "Я так и не понял Интерстеллар."
-            );
+        MailMessage secondMessage = new MailMessage(
+            "Jonathan Nolan",
+            "Christopher Nolan",
+            "Брат, почему все так хвалят только тебя, когда практически все сценарии написал я. Так не честно!"
+        );
 
-            List<MailMessage> messages = Arrays.asList(
-                    firstMessage, secondMessage, thirdMessage
-            );
+        MailMessage thirdMessage = new MailMessage(
+            "Stephen Hawking",
+            "Christopher Nolan",
+            "Я так и не понял Интерстеллар."
+        );
+/*
+        List<MailMessage> messages = Arrays.asList(
+            firstMessage, secondMessage, thirdMessage
+        );
 
 // Создание почтового сервиса.
             MailService<String> mailService = new MailService<>();
@@ -81,6 +84,7 @@ public class Main {
             assert salaries.get(salary1.getTo()).equals(Arrays.asList(1)): "wrong salaries mailbox content (1)";
             assert salaries.get(salary2.getTo()).equals(Arrays.asList(Integer.MAX_VALUE)): "wrong salaries mailbox content (2)";
             assert salaries.get(randomTo).equals(Arrays.asList(randomSalary)): "wrong salaries mailbox content (3)";
-        }
+
+ */
     }
 }
