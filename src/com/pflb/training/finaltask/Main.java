@@ -1,7 +1,5 @@
 package com.pflb.training.finaltask;
 import java.util.Arrays;
-import java.io.*;
-import java.lang.*;
 
 public class Main {
 
@@ -11,16 +9,15 @@ public class Main {
         int randomSalary = 100; //Любое случайное число.
 
         MailMessage firstMessage = new MailMessage(
-            "Robert Howa55rd",
-            "H.P. Lov55ecraft",
-            "This \"The Shadow over Innsmouth\" story is real masterpiece, How55ard!"
+            "Robert Howard",
+            "H.P. Lovecraft",
+            "This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!"
         );
 
-        //System.out.printf( firstMessage.getFrom() + "\n" );
-        //System.out.printf( firstMessage.getTo() + "\n" );
-        //System.out.printf( firstMessage.getContent() + "\n" );
+//        System.out.println( firstMessage.getFrom() );
+//        System.out.println( firstMessage.getTo() );
+//        System.out.println( firstMessage.getContent() );
 
-        //Проверим, что сообщение создалось как надо.
         assert firstMessage.getFrom().equals("Robert Howard"): "Wrong firstMessage from address";
         assert firstMessage.getTo().equals("H.P. Lovecraft"): "Wrong firstMessage to address";
         assert firstMessage.getContent().endsWith("Howard!"): "Wrong firstMessage content ending";
