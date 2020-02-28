@@ -33,10 +33,14 @@ public class Main {
             "Christopher Nolan",
             "Я так и не понял Интерстеллар."
         );
-/*
+
         List<MailMessage> messages = Arrays.asList(
             firstMessage, secondMessage, thirdMessage
         );
+
+        System.out.println( "The list is: " + messages );
+
+
 
 // Создание почтового сервиса.
             MailService<String> mailService = new MailService<>();
@@ -45,9 +49,8 @@ public class Main {
             messages.stream().forEachOrdered(mailService);
 
 // Получение "почтового ящика",
-//   где по получателю можно получить список сообщений, которые были ему отправлены
+// где по получателю можно получить список сообщений, которые были ему отправлены
             Map<String, List<String>> mailBox = mailService.getMailBox();
-
 
 //Проверка почтового ящика
             assert mailBox.get("H.P. Lovecraft").equals(
@@ -82,6 +85,5 @@ public class Main {
             assert salaries.get(salary2.getTo()).equals(Arrays.asList(Integer.MAX_VALUE)): "wrong salaries mailbox content (2)";
             assert salaries.get(randomTo).equals(Arrays.asList(randomSalary)): "wrong salaries mailbox content (3)";
 
- */
     }
 }
