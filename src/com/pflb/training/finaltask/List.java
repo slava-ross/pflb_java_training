@@ -1,7 +1,134 @@
 package com.pflb.training.finaltask;
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.*;
 
-public class List<T> implements java.util.List {
+public class List<T> implements List<T> {
+
+    private Elem<T> elem;
+
+    private int size = 0;
+
+    public List() {
+        this.elem = new Elem<T>();
+    }
+
+    @Override
+    public int size() {
+        return 0;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        return false;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return null;
+    }
+
+    @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
+
+    @Override
+    public <T> T[] toArray(T[] a) {
+        return null;
+    }
+
+    @Override
+    public boolean add(E e) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(int index, Collection<? extends E> c) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
+    @Override
+    public E get(int index) {
+        return null;
+    }
+
+    @Override
+    public E set(int index, E element) {
+        return null;
+    }
+
+    @Override
+    public void add(int index, E element) {
+
+    }
+
+    @Override
+    public E remove(int index) {
+        return null;
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        return 0;
+    }
+
+    @Override
+    public int lastIndexOf(Object o) {
+        return 0;
+    }
+
+    @Override
+    public ListIterator<E> listIterator() {
+        return null;
+    }
+
+    @Override
+    public ListIterator<E> listIterator(int index) {
+        return null;
+    }
+
+    @Override
+    public List<E> subList(int fromIndex, int toIndex) {
+        return null;
+    }
+}
+
+/*
     private T listObject;
 
     public List() {
@@ -25,52 +152,4 @@ public class List<T> implements java.util.List {
         return listObject.getClass().getName() + " " + listObject;
     }
 }
-
-
-/*
-
-package chapt03;
-
-public class Runner {
-    public static void main(String[] args) {
-//параметризация типом Integer
-        Optional<Integer> ob1 =
-                new Optional<Integer>();
-        ob1.setValue(1);
-
-//ob1.setValue("2");// ошибка компиляции: недопустимый тип
-        int v1 = ob1.getValue();
-        System.out.println(v1);
-
-//параметризация типом String
-
-        Optional<String> ob2 =
-                new Optional<String>("Java");
-        String v2 = ob2.getValue();
-        System.out.println(v2);
-
-//ob1 = ob2; //ошибка компиляции – параметризация не ковариантна
-
-//параметризация по умолчанию – Object
-
-        Optional ob3 = new Optional();
-        System.out.println(ob3.getValue());
-        ob3.setValue("Java SE 6");
-        System.out.println(ob3.toString());/* выводится
-
-тип объекта, а не тип параметризации */
-/*
-        ob3.setValue(71);
-        System.out.println(ob3.toString());
-        ob3.setValue(null);
-    }
-
-}
-
-    В результате выполнения этой программы будет выведено:
-        1
-        Java
-        null
-        java.lang.String Java SE 6
-        java.lang.Integer 71
 */
