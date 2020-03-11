@@ -1,5 +1,5 @@
 package com.pflb.training.finaltask;
-import java.util.*;
+import java.util.ArrayList;
 
 public class List<T> implements java.util.List {
     private T listObject;
