@@ -1,12 +1,12 @@
 package com.pflb.training.finaltask;
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        String randomFrom = "..."; //Любая случайная строка.
-        String randomTo = "...";  //Любая случайная строка.
+        String randomFrom = "Lorem ipsum dolor sit amet"; //Любая случайная строка.
+        String randomTo = "Ut enim ad minim veniam";  //Любая случайная строка.
         int randomSalary = 100; //Любое случайное число.
 
         MailMessage firstMessage = new MailMessage(
@@ -14,10 +14,6 @@ public class Main {
             "H.P. Lovecraft",
             "This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!"
         );
-
-//        System.out.println( firstMessage.getFrom() );
-//        System.out.println( firstMessage.getTo() );
-//        System.out.println( firstMessage.getContent() );
 
         assert firstMessage.getFrom().equals("Robert Howard"): "Wrong firstMessage from address";
         assert firstMessage.getTo().equals("H.P. Lovecraft"): "Wrong firstMessage to address";
@@ -39,22 +35,26 @@ public class Main {
             firstMessage, secondMessage, thirdMessage
         );
 
-        System.out.println( "The list is: " + messages );
+        //System.out.println( "The list is: " + messages );
 
-
+        Iterator<MailMessage> iterator = messages.iterator();
+        while( iterator.hasNext() ) {
+            MailMessage message = iterator.next();
+            System.out.printf( "From: %s to %s. Message: %s\n",message.getFrom(),message.getTo(),message.getContent() );
+        }
 
 // Создание почтового сервиса.
-            //MailService<String> mailService = new MailService<>();
-
+            MailService<String> mailService = new MailService<>();
+/*
 // Обработка списка писем почтовым сервисом
-            //messages.stream().forEachOrdered(mailService);
+        messages.stream().forEachOrdered( mailService );
 
 // Получение "почтового ящика",
 // где по получателю можно получить список сообщений, которые были ему отправлены
-            //Map<String, List<String>> mailBox = mailService.getMailBox();
+            Map<String, List<String>> mailBox = mailService.getMailBox();
 
 //Проверка почтового ящика
-/*            assert mailBox.get("H.P. Lovecraft").equals(
+            assert mailBox.get("H.P. Lovecraft").equals(
                     Arrays.asList(
                             "This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!"
                     )
@@ -68,24 +68,25 @@ public class Main {
             ): "wrong mailService mailbox content (2)";
 
             assert mailBox.get(randomTo).equals(Collections.<String>emptyList()): "wrong mailService mailbox content (3)";
+ */
 
 // Создание списка из трех зарплат.
-            Salary salary1 = new Salary("Facebook", "Mark Zuckerberg", 1);
-            Salary salary2 = new Salary("FC Barcelona", "Lionel Messi", Integer.MAX_VALUE);
-            Salary salary3 = new Salary(randomFrom, randomTo, randomSalary);
+            Salary salary1 = new Salary("Facebook", "Mark Zuckerberg", 1 );
+            Salary salary2 = new Salary("FC Barcelona", "Lionel Messi", Integer.MAX_VALUE );
+            Salary salary3 = new Salary( randomFrom, randomTo, randomSalary );
 
 // Создание почтового сервиса, обрабатывающего зарплаты.
             MailService<Integer> salaryService = new MailService<>();
-
+/*
 // Обработка списка зарплат почтовым сервисом
-            Arrays.asList(salary1, salary2, salary3).forEach(salaryService);
+            Arrays.asList(salary1, salary2, salary3).forEach( salaryService );
 
 //Проверка почтового ящика
             Map<String, List<Integer>> salaries = salaryService.getMailBox();
+
             assert salaries.get(salary1.getTo()).equals(Arrays.asList(1)): "wrong salaries mailbox content (1)";
             assert salaries.get(salary2.getTo()).equals(Arrays.asList(Integer.MAX_VALUE)): "wrong salaries mailbox content (2)";
             assert salaries.get(randomTo).equals(Arrays.asList(randomSalary)): "wrong salaries mailbox content (3)";
-
  */
     }
 }
