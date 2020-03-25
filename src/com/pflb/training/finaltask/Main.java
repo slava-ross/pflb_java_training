@@ -45,14 +45,14 @@ public class Main {
 
 // Создание почтового сервиса.
             MailService<String> mailService = new MailService<>();
-/*
+
 // Обработка списка писем почтовым сервисом
         messages.stream().forEachOrdered( mailService );
 
 // Получение "почтового ящика",
 // где по получателю можно получить список сообщений, которые были ему отправлены
             Map<String, List<String>> mailBox = mailService.getMailBox();
-
+/*
 //Проверка почтового ящика
             assert mailBox.get("H.P. Lovecraft").equals(
                     Arrays.asList(
