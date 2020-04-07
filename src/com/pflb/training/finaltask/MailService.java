@@ -2,6 +2,48 @@ package com.pflb.training.finaltask;
 import java.util.*;
 import java.util.function.Consumer;
 
+/*
+public interface Consumer<T> {
+    void accept(T t);
+    default java.util.function.Consumer<T> andThen(java.util.function.Consumer<? super T> after) {
+        Objects.requireNonNull(after);
+        return (T t) -> {
+            accept(t);
+            after.accept(t);
+        };
+    }
+}
+*/
+
+    Consumer<String> printer = string -> System.out.println(string);
+    printer.accept("Hello World!"); 
+
+public class MailService<T,E> implements Consumer<E> {
+    private Map<String, List<T>> serviceStorage;
+    private List<T> itemList;
+
+    public MailService() {
+        System.out.println( "The Instance of MailService is created." );
+    }
+
+    void accept( T serviceElement ) { //Salary serviceElement
+        System.out.println( "The email addresser is: " + serviceElement.getFrom() );
+        itemList = (List<T>) serviceStorage.get( serviceElement.getTo() );
+        itemList.add( (T) serviceElement.getContent() );
+        serviceStorage.put( serviceElement.getTo(), itemList );
+    }
+
+    public Map<String, List<T>> getMailBox() {
+        return this.serviceStorage;
+    }
+}
+
+
+
+
+
+
+//**************************************************************************************
 public interface IMailService {
     boolean test(Car car);
 }
@@ -9,6 +51,7 @@ public interface IMailService {
 public interface Searchable {
     boolean test(Car car);
 }
+
 public class CompactCarSearch implements Searchable {
     public boolean test(Car car) {
         return car.getType().equals(CarTypes.COMPACT);
@@ -65,71 +108,5 @@ public boolean test(Car car) {
         carDemo.getCarsNumber(cars,
         (Car car) -> car.getType().equals(CarTypes.COMPACT));
 
+//**************************************************************************************
 
-
-@FunctionalInterface
-public interface Consumer<T> {
-    void accept(T t);
-}
-
-import java.util.function.Consumer;
-
-public class ConsumerDemo1 {
-    public static void main(String[] args) {
-        Consumer<String> printUpperCase = str -> System.out.println(str.toUpperCase());
-        printUpperCase.accept("hello");
-    }
-}
-    Consumer интерфейс содержит метод по умолчанию, который возвращает составной Consumer, выполняющий последовательно действия указанные в каждом интерфейсе:
-
-default Consumer<T> andThen(Consumer<? super T> after)
-        Рассмотрим пример использование метода andThen():
-
-        import java.util.function.Consumer;
-
-public class ConsumerDemo1 {
-    public static void main(String[] args) {
-        Consumer<String> printUpperCase = str -> System.out.println(str.toUpperCase());
-        printUpperCase.accept("hello");
-
-        Consumer<String> printLowerCase = str -> System.out.println(str.toLowerCase());
-        printUpperCase.andThen(printLowerCase).accept("Hello world");
-    }
-}
-
-@FunctionalInterface
-public interface Consumer<T> {
-    void accept(T t);
-}
-
-interface IMailService<T,E> extends Consumer<E>{
-    @Override
-    void accept();
-}
-
-public class MailService<T,E> {
-    private Map<String, List<T>> serviceStorage;
-    private List<T> itemList;
-
-    public MailService() {
-        System.out.println( "The Instance of MailService is created." );
-    }
-
-    public MailService( MailMessage serviceElement ) {
-        System.out.println( "The email addresser is: " + serviceElement.getFrom() );
-        itemList = (List<T>) serviceStorage.get( serviceElement.getTo() );
-        itemList.add( (T) serviceElement.getContent() );
-        serviceStorage.put( serviceElement.getTo(), itemList );
-    }
-
-    public MailService( Salary serviceElement ) {
-        System.out.println( "The email addresser is: " + serviceElement.getFrom() );
-        itemList = (List<T>) serviceStorage.get( serviceElement.getTo() );
-        itemList.add( (T) serviceElement.getContent() );
-        serviceStorage.put( serviceElement.getTo(), itemList );
-    }
-
-    public Map<String, List<T>> getMailBox() {
-        return this.serviceStorage;
-    }
-}
